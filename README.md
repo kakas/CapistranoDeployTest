@@ -2,7 +2,7 @@
 
 今天來介紹使用 [DigitalOcean](https://m.do.co/c/4b15078c6d51) Deploy Rails App（資訊揭露：這是我個人的推薦連結，你拿 $10 我也拿 $10）
 
-或是用 [Linode](https://www.linode.com/?r=fb83fb07e858858a66d517319d687e0f05ce4843) 也可以，差在開機器而已（資訊揭露：這是 Jimmy 的推薦連結）
+或是用 [Linode](https://www.linode.com/?r=fb83fb07e858858a66d517319d687e0f05ce4843) 也可以，速度比較快但開機器方式略有差異（資訊揭露：這是 Jimmy 的推薦連結）
 
 環境
 - Ubuntu 14.04 x64
@@ -44,7 +44,8 @@
 接下來這章節下載安裝軟體都要花時間，請耐心等待。
 
 1. Copy DigitalOcean 左上角的 IP
-1. `$ ssh root@xxx.xxx.xxx.xxx`
+1. `$ ssh root@xxx.xxx.xxx.xxx` （xxx.xxx.xxx.xxx 是你的 IP 之後不再贅述）
+1. 去信箱收密碼，用這個密碼登入，然後再建立新密碼（請把他記下來）
 1. `#$ sudo apt-get update`
 1. `#$ sudo apt-get upgrade`
 1. `#$ sudo apt-get autoremove`
@@ -77,7 +78,7 @@
 1. 確認 ruby 2.3.0 是否安裝成功：`#$ rvm list`、`#$ ruby -v`
 1. 安裝 ImageMagick：`#$ sudo apt-get install imagemagick`
 1. 從這邊開始跟 Growth School 不一樣
-1. 安裝 `Nginx：#$ sudo apt-get install curl git-core nginx -y`
+1. 安裝 `Nginx：#$ sudo apt-get install nginx -y`
     - 先設定 Nginx 的 config 軟連結到你的專案
     - `#$ sudo rm /etc/nginx/sites-enabled/default`
     - `#$ sudo ln -nfs "/home/deploy/KaohsiungRubbishTruck/current/config/nginx.conf" "/etc/nginx/sites-enabled/KaohsiungRubbishTruck"`
@@ -306,6 +307,7 @@ set :puma_conf, "#{shared_path}/config/puma.rb"
 還記得剛剛安裝 nginx 的時候有設定軟連結嗎？
 就是要把他連到我們專案的設定檔。
 如果想檢查軟連結可以
+
 1. 先用 root 登入
 1. `#$ cd /etc/nginx/sites-enabled/`
 1. `#$ ls -la`
@@ -382,14 +384,19 @@ server {
 ```
 
 #### 第一次 deploy
-- 把 database.yml 跟 secrets.yml 丟到 Ubuntu（之後如果有更改也可以這樣丟）
-  - `$ cap production deploy:upload`
-- `$ cap production deploy:initial`
-- `ssh 用 root 登入，重開 nginx`
-- `#$ sudo service nginx restart`
 
-#### 之後如果要 deploy，只要 commit 然後 push 到 master，然後下令 `$ cap production deploy` 就可以了。
+1. `$ cap production deploy:check`
+1. 把 database.yml 跟 secrets.yml 丟到 Ubuntu（之後如果有更改也可以這樣丟）
+   - `$ cap production deploy:upload`
+1. `$ cap production deploy:initial`
+1. `ssh 用 root 登入，重開 nginx`：`#$ sudo service nginx restart`
 
+
+#### Normal deploy
+
+1. `$ git commit -m "commit message"`
+1. `$ git push origin master`
+1. `$ cap production deploy`
 
 
 # 參考資料：
