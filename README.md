@@ -112,6 +112,22 @@
     - 測試一下：`#$ ssh -T git@github.com` 成功的話會出現歡迎訊息
 
 
+### 補充說明
+如果用 Capistrano 的時候他還是叫你打密碼，請馬上修正喔。
+修正方法如下：
+
+```
+$ eval `ssh-agent -s`
+$ ssh-add ~/.ssh/id_rsa
+```
+
+如果你是用 zsh，請做以下修改
+- $ vi ~/.zshrc
+
+```ruby
+plugins=(git ssh-agent) # 加上這一行
+```
+
 
 
 # 設定自動化部屬（請在你專案上的 master branch 上做）
