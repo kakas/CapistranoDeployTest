@@ -1,3 +1,7 @@
+Deploying a Rails App on Ubuntu 14.04 with Capistrano, Nginx, and Puma
+
+做的時候把 KaohsiungRubbishTruck 改成自己專案的 APP_NAME 即可
+
 # 前言
 
 今天來介紹使用 [DigitalOcean](https://m.do.co/c/4b15078c6d51) Deploy Rails App（資訊揭露：這是我個人的推薦連結，你拿 $10 我也拿 $10）
