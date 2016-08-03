@@ -132,18 +132,6 @@ plugins=(git ssh-agent) # 加上這一行
 
 # 設定自動化部屬（請在你專案上的 master branch 上做）
 
-## 在 `.gitignore` 加上
-
-```ruby
-/config/database.yml
-/config/secrets.yml
-```
-
-這兩個檔案各複製一份出來
-- config/database.yml -> config/database.yml.sample
-- config/secrets.yml -> config/secrets.yml.sample
-- 把 config/database.yml、config/secrets.yml 刪掉
-
 ## 修改 Gemfile 加上下列程式碼，並把其他 App Server 的 Gem 註解掉 （像是 Passenger、Unicorn 之類的）
 
 ```ruby
@@ -363,6 +351,18 @@ server {
   keepalive_timeout 10;
 }
 ```
+
+## 在 `.gitignore` 加上
+
+```ruby
+/config/database.yml
+/config/secrets.yml
+```
+
+這兩個檔案各複製一份出來
+- config/database.yml -> config/database.yml.sample
+- config/secrets.yml -> config/secrets.yml.sample
+- 把 config/database.yml、config/secrets.yml 刪掉
 
 ## 將剛剛做的修改 commit 起來，push 到遠端
 
