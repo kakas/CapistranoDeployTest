@@ -154,11 +154,11 @@ plugins=(git ssh-agent) # 加上這一行
 + gem 'therubyracer', platforms: :ruby
 
 + group :development do
-+     gem 'capistrano',         require: false
-+     gem 'capistrano-rvm',     require: false
-+     gem 'capistrano-rails',   require: false
-+     gem 'capistrano-bundler', require: false
-+     gem 'capistrano3-puma',   require: false
++   gem 'capistrano',         '~> 3.6.0', require: false
++   gem 'capistrano-rvm',     '~> 0.1',   require: false
++   gem 'capistrano-rails',   '~> 1.1.7', require: false
++   gem 'capistrano-bundler', '~> 1.1.4', require: false
++   gem 'capistrano3-puma',   '~> 1.2.1', require: false
 + end
 
 + gem 'puma'
