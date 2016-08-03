@@ -19,3 +19,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+*.swp
+*.swo
+erd.pdf
+tags
+.vim-bookmarks
