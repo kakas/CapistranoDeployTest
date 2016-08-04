@@ -29,7 +29,7 @@ Deploying a Rails App on Ubuntu 14.04 with Capistrano, Nginx, and Puma
 
 1. 註冊好並登入後，按 `Create Droplet`
 1. 選 `Ubuntu 14.04 x64`
-1. 選 `$10/mo` 的機器
+1. 選 `$10/mo` 的機器 <== 重要！！！！！！！！ 選 $5 的會記憶體不足
 1. 地區選`新加坡`（Singapore）
 1. 把你本機的公鑰加到 DigitalOcean（不一定要做，但建議）
    - `$ cat ~/.ssh/id_rsa.pub` 即可查到本機的公鑰
@@ -129,9 +129,10 @@ $ ssh-add ~/.ssh/id_rsa
 - $ vi ~/.zshrc
 
 ```ruby
-plugins=(git ssh-agent) # 加上這一行
+plugins=(git)
++ plugins=(git ssh-agent) # 加上這一行
+# 修改完後請把 iterm2 關掉（cmd + Q）
 ```
-
 
 
 # 設定自動化部屬（請在你專案上的 master branch 上做）
