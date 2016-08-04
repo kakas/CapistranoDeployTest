@@ -113,7 +113,9 @@ Deploying a Rails App on Ubuntu 14.04 with Capistrano, Nginx, and Puma
     - [SSH and GPG keys](https://github.com/settings/keys) 進入後按 `New SSH key`
     - Title 可以取跟你機器名稱一樣，方便記
     - 貼上 Ubuntu 機器的公鑰
-    - 測試一下：`#$ ssh -T git@github.com` 成功的話會出現歡迎訊息
+    - 測試一下：`#$ ssh -T git@github.com`
+      - Are you sure you want to continue connecting (yes/no)? yes
+      - 成功的話會出現歡迎訊息
 
 
 
