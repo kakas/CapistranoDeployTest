@@ -60,7 +60,6 @@ Deploying a Rails App on Ubuntu 14.04 with Capistrano, Nginx, and Puma
 1. 安裝 MySQL：
     - `#$ sudo apt-get install mysql-common mysql-client libmysqlclient-dev mysql-server`
     - 安裝時會提示你要建立密碼，但是可以直接按 Enter 忽略掉，我們之後再把 MySQL 的 Port 關起來就好了
-    - Jimmy 之後會教怎麼關！
 1. 測試 MySQL：
     - `#$ mysql -u root -p`
     - 若出現 `mysql >` 就表示安裝成功了
@@ -426,6 +425,8 @@ plugins=(git)
 ```
 
 
+#### 關 Port
+[How To Set Up a Firewall with UFW on Ubuntu 14.04 | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04)
 
 
 # 參考資料：
