@@ -116,23 +116,6 @@ Deploying a Rails App on Ubuntu 14.04 with Capistrano, Nginx, and Puma
     - 測試一下：`#$ ssh -T git@github.com` 成功的話會出現歡迎訊息
 
 
-### 補充說明
-如果用 Capistrano 的時候他還是叫你打密碼，請馬上修正喔。
-修正方法如下：
-
-```
-$ eval `ssh-agent -s`
-$ ssh-add ~/.ssh/id_rsa
-```
-
-如果你是用 zsh，請做以下修改
-- $ vi ~/.zshrc
-
-```ruby
-plugins=(git)
-+ plugins=(git ssh-agent) # 加上這一行
-# 修改完後請把 iterm2 關掉（cmd + Q）
-```
 
 
 # 設定自動化部屬（請在你專案上的 master branch 上做）
@@ -418,6 +401,29 @@ server {
 1. `$ git commit -m "commit message"`
 1. `$ git push origin master`
 1. `$ cap production deploy`
+
+
+
+
+#### 補充說明
+如果用 Capistrano 的時候他還是叫你打密碼，請馬上修正喔。（因為我自己在測的時候感覺不太一樣）
+修正方法如下：
+
+```
+$ eval `ssh-agent -s`
+$ ssh-add ~/.ssh/id_rsa
+```
+
+如果你是用 zsh，請做以下修改
+- $ vi ~/.zshrc
+
+```ruby
+plugins=(git)
++ plugins=(git ssh-agent) # 加上這一行
+# 修改完後請把 iterm2 關掉（cmd + Q）
+```
+
+
 
 
 # 參考資料：
